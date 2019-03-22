@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block right %}
+<div class="center">
+		<div style="width:100%;height:100px">
+			<h4 style="padding:15px">每日一句:
+				<p style="text-align:center">
+					No pains No ,gains.
+				</p>
+			</h4>
+		</div>
+		
+		<div style="border: 1px solid burlywood ;text-align: center">
+			<h3 style="text-align:center">{{article.title}}</h3>
+			<br>
+
+			<h5 style="text-align:right;padding-right: 20px">最后更新时间:{{article.date}}</h5>
+			<p
+				style="width:100%;padding-left: 50px;padding-right: 50px;text-indent: 2em;text-align: left;line-height: 30px">
+				{{article.contents}}
+			</p>
+			<br> <br>
+
+		</div>
+
+	</div>
+	<style>
+	.center {
+			float: left;
+			width: 50%;
+			height: 100%;
+			margin-left: 30px;
+			border: 1px solid burlywood;
+		}</style>
+
+{% endblock %}
