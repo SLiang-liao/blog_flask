@@ -1,19 +1,20 @@
 {% extends "base.html" %}
 
 
-{% block right %}
-<div class='center' style="text-align:center;padding-top: 50px">
+{% block box %}
+<div class='right' style="text-align:center;padding-top: 50px">
     <form id="postform" method="post" action="{{url_for('comment_ok')}}">
-        <h2 >留言板</h2>
+        <h2>留言板</h2>
         <br>
-        <h5>您的昵称:<input type="text" name="name" size="20" maxlength="20" placeholder="给自己取个昵称吧">
-            &nbsp;&nbsp;
+        <span>
+            <h5>您的昵称:<input type="text" name="name" size="20" maxlength="20" placeholder="给自己取个昵称吧">
+                &nbsp;&nbsp;
 
 
-            您的邮箱:<input type="email" name="email" size="30" maxlength="20" placeholder="能联系到你的邮箱哦"></h5>
-        <br>
-
-        <h5><textarea rows='20' cols="100" name='comments' placeholder="请在此处输入留言内容">
+                您的邮箱:<input type="email" name="email" size="30" maxlength="20" placeholder="能联系到你的邮箱哦"></h5>
+            <br>
+        </span>
+        <h5><textarea rows='20' cols="80" name='comments' placeholder="请在此处输入留言内容">
 		   </textarea>
             <input type="submit">
 
@@ -24,19 +25,18 @@
             document.getElementById("postform").submit();
         }
     </script>
-    
+
 
 </div>
 
 
 <style>
-    .center {
-        float: left;
-        width: 50%;
+    .right {
+        float: right;
+        width: 40%;
         height: 100%;
-        margin-left: 30px;
+        padding-right: 100px;
 
     }
-    
 </style>
 {% endblock %}

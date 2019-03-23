@@ -1,39 +1,62 @@
 {% extends "base.html" %}
-{% block right %}
-<div class="center">
-	<div style="width:100%;height:100px">
-		<h4 style="padding:15px">每日一句:
-			<p style="text-align:center">
-				No pains No ,gains.
-			</p>
-		</h4>
-	</div>
-	<!--文章显示-->
-	{% for article in articles %}
+{% block box %}
 
-	<div style="border: 1px solid burlywood ;text-align: center">
-		<h3 style="text-align:center">{{article.title}}</h3>
+<div class="box">
+	<div class="left">
+		<h3>关于我</h3>
+		<img src="{{url_for('static',filename ='images/aboutme.jpg')}}" width="100" height="100">
+		<br><br>
+		<div class='contact'>
+			<ul>
+				<li style="font-size: 15px;list-style: none">联系我:<a
+						href="mailto:1324901134@qq.com">1324901134@qq.com</a></li><br>
+				<li style="font-size: 15px;list-style: none">博客源码:<a href="https://github.com/liaoshengliang/blog_flask"target='_blank'>访问我的github</a></li>
+			</ul>
+		</div>
 		<br>
-		<h5 style="text-align:right;padding-right: 20px">最后更新时间:{{article.date}}</h5>
-		<p
-			style="width:100%;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3 ;overflow:hidden;padding-left: 50px;padding-right: 50px;text-indent: 2em;line-height: 30px">
-			{{article.contents}}
-		</p>
-		<br> <br>
-		<a href="{{url_for('get_full_read',id=article.id)}}" style="font-size:20px;border:1px dashed violet">阅读更多</a>
+		<h3>
+			文档归类
+			<div class="cate">
+				<br>
+
+				<li><a href="wati.html">python</a></li><br>
+				<li><a href="wati.html">c/c++</a></li><br>
+				<li><a href="wati.html">工具</a></li><br>
+
+			</div>
+		</h3>
+
 
 	</div>
-	{% endfor %}
-</div>
-<style>
 
-.center {
-			float: left;
-			width: 50%;
-			height: 100%;
-			margin-left: 30px;
-			border: 1px solid burlywood;
-		}</style>
+	<div class="right">
+		<!--文章显示-->
+		{% for article in articles %}
+
+		<div class="articles" style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<h3 class="panel-title" style="text-align:center">
+						{{article.title}}<br>
+						<h5 style="text-align:right;padding-right: 20px">最后更新时间:{{article.date}}</h5>
+					</h3>
+				</div>
+				<div class="panel-body">
+					{{article.contents|safe}}
+				</div>
+				
+
+			</div>
+			<button><a href="{{url_for('get_full_read',id=article.id)}}" style="background:aliceblue">阅读更多</a></button>
+		</div>
+
+		<br>
+
+		<br>
+		{% endfor %}
+
+	</div>
 
 
-{% endblock %}
+
+	{% endblock %}

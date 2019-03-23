@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block box %}
+
+
+<script src="{{url_for('static',filename='ckeditor/ckeditor.js')}}"></script>
+<form action="{{url_for('post_ok')}}" id="postarticle" method="post">
+    <div class="editcontents">
+        <label>标题 :<input type='text' name='title'></label>
+        <label>分类 :<select name="tags">
+                <option value="python">python</option>
+                <option value="c/c++">c/c++</option>
+                <option value="闲聊">闲聊</option>
+                <option value="转载">转载</option>
+                <option value="linux">linux</option>
+            </select></label>
+
+        <textarea class="ckeditor" id="textarea" name="contents"></textarea>
+        <script type="text/javascript">CKEDITOR.replace('contents');</script>
+        <input type="submit">
+
+    </div>
+
+</form>
+<script type="text/javascript">
+    function tijiao(){
+    document.getElementById("postarticle").submit();
+    }
+    </script>
+<style>
+    .editcontents {
+        float: left;
+        padding-left: 100px;
+        padding-top: 200px;
+        text-align: left;
+    }
+</style>
+{% endblock %}

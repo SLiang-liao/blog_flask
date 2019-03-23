@@ -26,7 +26,7 @@ def get_articles_list():
         return render_template('articles.html',articles=get.get_articles())
 @app.route('/edit',methods=['get'])
 def postarticle():
-        return render_template('edit.html')
+        return render_template('eidtor.html')
 @app.route('/submitok.html',methods=['post'])
 def post_ok():
         admin=Admin()
@@ -41,7 +41,7 @@ def post_ok():
 
 @app.route('/edit.html')
 def  get_edit_page():
-        return render_template('edit.html')
+        return render_template('editor.html')
 
 @app.route('/login.html')
 def login():
