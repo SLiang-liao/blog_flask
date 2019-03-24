@@ -1,6 +1,5 @@
 from blog.models.blogDB import get_db
-import hashlib
-
+'''获取所有的内容，如文章，留言，分享等'''
 class Contents:
     def __init__(self):
         self.__db=get_db()
@@ -18,6 +17,14 @@ class Contents:
         temp=self.__cur.fetchall()[0]
         return dict(zip(('id','title','contents','date','tags'),temp))
 
+        
+    def get_articles_bytags(self,tags):
+        self.__cur.execute('select * from articles where tags=?',(tags,))
+        temp=self.__cur.fetchall()
+        get=[]
+        for each in temp:
+            get.append(dict(zip(('id','title','contents','date','tags'),each)))
+        return get
     def get_articles(self):
         temp=self.__cur.execute("select *from articles order by id DESC")
         temp=self.__cur.fetchall()
@@ -26,10 +33,23 @@ class Contents:
             get.append(dict(zip(('id','title','contents','date','tags'),each)))
         return get
     def  get_shares(self):
-        temp=self.__cur.execute("select *from shares order by id DESC")
+        self.__cur.execute("select *from shares order by id DESC")
         temp=self.__cur.fetchall()
         get=[]
         for each in temp:
             get.append(dict(zip(('id','url','pwd','tags','contents'),each)))
         return get
+    def get_comments_well(self ):
+        self.__cur.execute("select *from comments")
+        temp=self.__cur.fetchall()
+        get=[]
+        for each in temp:
+            get.append(dict(zip(('name','contact','comments','date'),each)))
+        return get
+    def get_numlist(self):
+        self.__cur.execute("select * from admin")
+        temp=self.__cur.fetchall()[0][4:]
+        return dict(zip(('Python','MachineLearning','Other','cpp'),temp))
+
+
 

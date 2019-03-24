@@ -1,0 +1,19 @@
+<div class="col-sm-4">
+    <h2>关于我</h2>
+    <div class="fakeimg"><img src="{{url_for('static',filename='images/aboutme.jpg')}}" width="50%" height="50%"></div>
+    <p><br><br> </p>
+    <h3>链接</h3>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="mailto:sl.leo@outlook.com">邮箱：sl.leo@outlook.com</a></li>
+      <li><a href="https://github.com/liaoshengliang/blog_flask">博客源码:点击这里</a></li>
+    </ul>
+    <hr class="hidden-sm hidden-md hidden-lg">
+    <h3>文档归类</h3>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="{{url_for('get_articles_bytags',tags='Python')}}">Python({{nums.Python}})</a></li>
+      <li><a href="{{url_for('get_articles_bytags',tags='MachineLearning')}}">机器学习({{nums.MachineLearning}})</a></li>
+      <li><a href="{{url_for('get_articles_bytags',tags='Other')}}">转载({{nums.Other}})</a></li>
+      <li><a href="{{url_for('get_articles_bytags',tags='cpp')}}">c/c++({{nums.cpp}})</a></li>
+    </ul>
+    <hr class="hidden-sm hidden-md hidden-lg">
+</div>
