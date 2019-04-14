@@ -1,0 +1,41 @@
+{% extends "admin.html" %}
+{% block box %}
+<div style="width: 70%">
+    <table class="table">
+        <caption>全部文章</caption>
+        <thead>
+            <tr>
+                <th>标题</th>
+                <th>标签</th>
+                <th>时间</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for article in articles %}
+            <tr>
+                <td>{{article.title}}</td>
+                <td>{{article.tags}}</td>
+                <td>{{article.date}}</td>
+                <form id="delete" method="post" action="{{url_for('deleteok')}}">
+                    
+                    <td> <input type="hidden" name="id" value="{{article.id}}" ></td>
+                    <td> <input type="hidden" name="tags" value="{{article.tags}}" ></td>
+                    <td> <input type="submit" value="删除"></td>
+                </form>
+                
+                
+                <script type="text/javascript">
+                    function tijiao(){
+                    document.getElementById("delete").submit();
+                    }
+                </script>
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+</div>
+
+
+
+{% endblock %}
