@@ -11,8 +11,9 @@
     </ul>
 </div>
 {% endblock %}
+
 {% block box %}
-<div class="container">
+<div class="container" style="float: lef">
 
     <div class="commentboard" style="float: left;border: peru">
 
@@ -39,9 +40,10 @@
 
     </div>
 
-    </div>
+  
+    {% for comment in commentswell %}
     <diV>
-        {% for comment in commentswell %}
+        
         <!--留言墙-->
         <div class="well" style="float:left;padding-left: 20px">
             <div>
@@ -49,6 +51,9 @@
                     <strong>{{comment.name}}:</strong>
                 </h5>
             </div>
+            <p>
+                {{comment.contact}}
+            </p>
             <p>
                 {{comment.comments}}
             </p>
@@ -64,9 +69,10 @@
 
 
 
-        {% endfor %}
+        
 
     </diV>
+    {% endfor %}
 
 
 
