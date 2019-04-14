@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
     <body>
@@ -20,3 +21,26 @@
         </div>
     </body>
 </html>
+=======
+{% extends "base.html" %}
+{% block box %}
+
+<div>
+    <form id="login" method="post" action="{{url_for('login_ok')}}">
+        <div style="text-align: center;padding-top: 200px" >
+            <h5>管理员账号:<input type="text" name="adminname"></h5>
+            <h5>管理员密码:<input type="password" name="password"></h5>
+            <input type="submit" >
+            <br><br>
+        </div>
+    </form>
+    
+    <script type="text/javascript">
+        function tijiao(){
+        document.getElementById("login").submit();
+        }
+    </script>
+
+</div>
+{% endblock %}
+>>>>>>> afbfceda5267265790b461a1138a0820191a1412
