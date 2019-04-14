@@ -40,7 +40,6 @@ class Admin:
             return '0'
     def comment(self,name,contact,comments,date):
         self.__cur.execute("insert into comments(name,contact,comments,date)VALUES(?,?,?,?)",(name,contact,comments,date))
-<<<<<<< HEAD
         self.__db.commit()
 
     def setpwd(self,password):
@@ -63,11 +62,8 @@ class Admin:
         else:
                 temp=self.__cur.execute("select cpp from admin").fetchall()[0][0]
                 self.__cur.execute("update admin set cpp = ?",(str(int(temp)-1)))
+        
         self.__cur.execute("delete from articles where id = ?",(id))
         self.__db.commit()
 
 
-=======
-        self.__db.commit()
-
->>>>>>> afbfceda5267265790b461a1138a0820191a1412

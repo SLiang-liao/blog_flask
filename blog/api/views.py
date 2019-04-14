@@ -12,15 +12,12 @@ def index():
 def get_articles_list():
         get=Contents()
         return render_template('articles.html',articles=get.get_articles())
-<<<<<<< HEAD
 
 @app.route('/deletearticles')
 def get_articles_manage():
         get=Contents()
         return render_template('articles_manage.html',articles=get.get_articles())
 
-=======
->>>>>>> afbfceda5267265790b461a1138a0820191a1412
 @app.route('/cate<tags>')
 def get_articles_bytags(tags):
         get=Contents()
@@ -93,7 +90,6 @@ def comment_ok():
 def commentswell():
         get=Contents()
         return render_template('messageboard.html',commentswell=get.get_comments_well())
-<<<<<<< HEAD
 @app.route('/adminhome')
 def admin():
         return render_template('admin.html')
@@ -106,8 +102,6 @@ def deleteok():
         admin.deletearticles(id,tags)
         return redirect(url_for('get_articles_manage'))
 
-=======
->>>>>>> afbfceda5267265790b461a1138a0820191a1412
 
 @app.route('/wati.html')#t通用等待页面。提示功能正在开发中。
 def wait():
