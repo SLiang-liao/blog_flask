@@ -1,4 +1,14 @@
 {% extends "base.html" %}
+{% block nav %}
+<div class="collapse navbar-collapse" id="example-navbar-collapse">
+    <ul class="nav  nav-pills">
+
+
+        <li><a href="{{url_for('admin')}}">后台</a></li>
+        
+    </ul>
+</div>
+{% endblock %}
 
 {% block box %}
 
@@ -8,25 +18,26 @@
     <div class="editcontents">
         <label>标题 :<input type='text' name='title'></label>
         <label>分类 :<select name="tags">
-                <option value="python">python</option>
-                <option value="c/c++">c/c++</option>
-                <option value="闲聊">闲聊</option>
-                <option value="转载">转载</option>
-                <option value="linux">linux</option>
+                <option value="Python">Python</option>
+                <option value="MachineLearning">Machine Learning</option>
+                <option value="Other">其它</option>
+                <option value="cpp">c/c++</option>
             </select></label>
 
         <textarea class="ckeditor" id="textarea" name="contents"></textarea>
-        <script type="text/javascript">CKEDITOR.replace('contents');</script>
+        <script type="text/javascript">
+            CKEDITOR.replace('contents');
+        </script>
         <input type="submit">
 
     </div>
 
 </form>
 <script type="text/javascript">
-    function tijiao(){
-    document.getElementById("postarticle").submit();
+    function tijiao() {
+        document.getElementById("postarticle").submit();
     }
-    </script>
+</script>
 <style>
     .editcontents {
         float: left;

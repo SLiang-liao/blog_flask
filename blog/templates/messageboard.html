@@ -1,42 +1,140 @@
 {% extends "base.html" %}
+<<<<<<< HEAD
+{% block nav %}
+<div class="collapse navbar-collapse" id="example-navbar-collapse">
+    <ul class="nav  nav-pills">
+        <li><a href="{{url_for('index')}}">主页</a></li>
 
-
-{% block box %}
-<div class='right' style="text-align:center;padding-top: 50px">
-    <form id="postform" method="post" action="{{url_for('comment_ok')}}">
-        <h2>留言板</h2>
-        <br>
-        <span>
-            <h5>您的昵称:<input type="text" name="name" size="20" maxlength="20" placeholder="给自己取个昵称吧">
-                &nbsp;&nbsp;
-
-
-                您的邮箱:<input type="email" name="email" size="30" maxlength="20" placeholder="能联系到你的邮箱哦"></h5>
-            <br>
-        </span>
-        <h5><textarea rows='20' cols="80" name='comments' placeholder="请在此处输入留言内容">
-		   </textarea>
-            <input type="submit">
-
-
-    </form>
-    <script type="text/javascript">
-        function tijiao() {
-            document.getElementById("postform").submit();
-        }
-    </script>
-
-
+        <li><a href="wati.html">计划</a></li>
+        <li><a href="{{url_for('get_shares')}}">分享</a></li>
+        <li><a href="wati.html">闲谈</a></li>
+        <li  class="active"><a href="{{url_for('post_message')}}">留言板</a></li>
+    </ul>
 </div>
+{% endblock %}
+{% block box %}
+<div class="container">
+=======
+{% block box %}
+<div class="container">
+
+    <div class="commentboard" style="float: left;border: peru">
+
+        <div>
+            <form id="comment" method="post" action="{{url_for('comment_ok')}}">
+                <div>
+                    <input type="text" placeholder="输入你的昵称吧" size="15" name="name">
+                </div>
+                <br>
+                <div><input type="text" placeholder="可以留下联系方式哦" size="15" name="contact"></div>
+                <div><br>
+                    <textarea placeholder="快快留下你的脚步" rows="5" name="comments"></textarea>
+                </div>
+                <div>
+                    <input type="submit">
+                </div>
+            </form>
+            <script type="text/javascript">
+                function tijiao() {
+                    document.getElementById("comment").submit();
+                }
+            </script>
+        </div>
+>>>>>>> afbfceda5267265790b461a1138a0820191a1412
+
+    <div class="commentboard" style="float: left;border: peru">
+
+<<<<<<< HEAD
+        <div>
+            <form id="comment" method="post" action="{{url_for('comment_ok')}}">
+                <div>
+                    <input type="text" placeholder="输入你的昵称吧" size="15" name="name">
+                </div>
+                <br>
+                <div><input type="text" placeholder="可以留下联系方式哦" size="15" name="contact"></div>
+                <div><br>
+                    <textarea placeholder="快快留下你的脚步" rows="5" name="comments"></textarea>
+                </div>
+                <div>
+                    <input type="submit">
+                </div>
+            </form>
+            <script type="text/javascript">
+                function tijiao() {
+                    document.getElementById("comment").submit();
+                }
+            </script>
+        </div>
+=======
+    </div>
+    <diV>
+    {% for comment in commentswell %}
+    <!--留言墙-->
+    <div class="well" style="float:left;padding-left: 20px">
+        <div>
+            <h5>
+                <strong>{{comment.name}}:</strong>
+            </h5>
+        </div>
+        <p>
+            {{comment.comments}}
+        </p>
+        <div style="text-align:right">
+                <p>
+                    <i>留言于:{{comment.date}}</i>    
+                    </p>
+        </div >
+        
+>>>>>>> afbfceda5267265790b461a1138a0820191a1412
+
+    </div>
+
+<<<<<<< HEAD
+    </div>
+    <diV>
+        {% for comment in commentswell %}
+        <!--留言墙-->
+        <div class="well" style="float:left;padding-left: 20px">
+            <div>
+                <h5>
+                    <strong>{{comment.name}}:</strong>
+                </h5>
+            </div>
+            <p>
+                {{comment.comments}}
+            </p>
+            <div style="text-align:right">
+                <p>
+                    <i>留言于:{{comment.date}}</i>
+                </p>
+            </div>
 
 
-<style>
-    .right {
-        float: right;
-        width: 40%;
-        height: 100%;
-        padding-right: 100px;
+        </div>
 
-    }
-</style>
+
+
+
+        {% endfor %}
+=======
+
+
+
+    {% endfor %}
+
+</diV>
+>>>>>>> afbfceda5267265790b461a1138a0820191a1412
+
+    </diV>
+
+
+
+
+
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> afbfceda5267265790b461a1138a0820191a1412
+</div>
 {% endblock %}

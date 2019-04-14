@@ -1,32 +1,42 @@
 {% extends "base.html" %}
+<<<<<<< HEAD
+{% block nav %}
+<div class="collapse navbar-collapse" id="example-navbar-collapse">
+    <ul class="nav  nav-pills">
+        <li ><a href="{{url_for('index')}}">主页</a></li>
 
-
-
+        <li><a href="wati.html">计划</a></li>
+        <li class="active"><a href="{{url_for('get_shares')}}">分享</a></li>
+        <li><a href="wati.html">闲谈</a></li>
+        <li><a href="{{url_for('post_message')}}">留言板</a></li>
+    </ul>
+</div>
+{% endblock %}
+=======
+>>>>>>> afbfceda5267265790b461a1138a0820191a1412
 {% block box %}
 <div class="right">
-	<div style="width:100%;height:100px;text-align: center">
-            <h3 style="text-align:center;background: lightcoral" >
-                <br>
-                需要什么帮助，请在请留言板留言，或联系邮箱哦。
-            </h3>
-		
-	</div>
-	<!--文章显示-->
-            {% for share in shares %}
-
-            <div style="border: 1px solid burlywood ;text-align: center">
-                <h4 style="text-align:center">{{share.contents}}</h4>
-                <p
-                    style="width:100%;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3 ;overflow:hidden;padding-left: 50px;padding-right: 50px;text-indent: 2em;line-height: 30px">
-                    网址  :<a href="{{share.url}}" target='_blank'>{{share.url}}</a><br>
-                    密码  :{{share.pwd}}
-                </p>
-                <br> 
-
-
-            </div>
+    <div style="width:100%;height:100px;text-align: center">
+        <h3 style="text-align:center;background: lightcoral">
             <br>
-            {% endfor %}
+            需要什么帮助，请在请留言板留言，或联系邮箱哦。
+        </h3>
+    </div>
+    <!--文章显示-->
+    {% for share in shares %}
+    <div style="border: 1px solid burlywood ;text-align: center">
+        <h4 style="text-align:center">{{share.contents}}</h4>
+        <p
+            style="width:100%;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3 ;overflow:hidden;padding-left: 50px;padding-right: 50px;text-indent: 2em;line-height: 30px">
+            网址 :<a href="{{share.url}}" target='_blank'>{{share.url}}</a><br>
+            密码 :{{share.pwd}}
+        </p>
+        <br>
+
+
+    </div>
+    <br>
+    {% endfor %}
 
 </div>
 {%endblock%}
