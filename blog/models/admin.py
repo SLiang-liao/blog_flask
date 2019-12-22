@@ -52,16 +52,16 @@ class Admin:
     def deletearticles(self,id,tags):
         if tags=='Python':
                 temp=self.__cur.execute("select Python from admin").fetchall()[0][0]
-                self.__cur.execute("update admin set Python = ?",(str(int(temp)-1)))
+                self.__cur.execute("update admin set Python = ?",(str(int(temp)-1),))
         elif tags=='MachineLearning':
                 temp=self.__cur.execute("select MachineLearning from admin").fetchall()[0][0]
-                self.__cur.execute("update admin set MachineLearnin = ?",(str(int(temp)-1)))
+                self.__cur.execute("update admin set MachineLearning = ?",(str(int(temp)-1),))
         elif tags=='Other':
                 temp=self.__cur.execute("select Other from admin").fetchall()[0][0]
-                self.__cur.execute("update admin set Other = ?",(str(int(temp)-1)))
+                self.__cur.execute("update admin set Other = ?",(str(int(temp)-1),))
         else:
                 temp=self.__cur.execute("select cpp from admin").fetchall()[0][0]
-                self.__cur.execute("update admin set cpp = ?",(str(int(temp)-1)))
+                self.__cur.execute("update admin set cpp = ?",(str(int(temp)-1),))
         
         self.__cur.execute("delete from articles where id = ?",(id))
         self.__db.commit()
